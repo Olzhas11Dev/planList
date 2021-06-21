@@ -6,15 +6,20 @@ import { useState } from "react"
 function App() {
   const [inputText, setInputText] = useState("")
   const [array, setArray] = useState([])
-  const [color, setColor] = useState()
+  const [index, setIndex] = useState(0)
+  const colorArr = ["#BBAFFD", "#008CFF", "#42E3C1"]
 
   function addToArray() {
-    setArray([...array, inputText])
+    setIndex(index + 1)
+    if (index === colorArr.length - 1) {
+      setIndex(0)
+    }
+    setArray([...array, { text: inputText, color: colorArr[index] }])
     setInputText("") // To clean the input
   }
 
-  function cleanList(inputText) {
-    setArray(array.filter((e) => e !== inputText))
+  function cleanList(myItem) {
+    setArray(array.filter((e) => e !== myItem))
   }
   console.log(inputText)
   console.log(array)
