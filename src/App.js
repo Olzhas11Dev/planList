@@ -5,19 +5,22 @@ import { useState } from "react"
 
 function App() {
   const [inputText, setInputText] = useState("")
-  const [arr, setArr] = useState([])
-
-  const [index, setIndex] = useState(0)
-  const [color, setColor] = useState("#008CFF")
-  const arrColor = ["#008CFF", "#BBAFFD", "#42E3C1"]
-
+  const [array, setArray] = useState([])
+  function addToArray() {
+    setArray([...array, inputText])
+    setInputText("") // To clean input
+  }
+  console.log(inputText)
+  console.log(array)
   return (
     <div className="App">
       <h2>Plan list</h2>
-      <InputSection />
-      <ListItems />
+      <InputSection inputText={inputText} setInputText={setInputText} addToArray={addToArray} />
+      {array.map((e) => (
+        <ListItems item={e} />
+      ))}
 
-      <div className="item">Items:{arr.length}</div>
+      <div className="item">Items: {array.length}</div>
     </div>
   )
 }

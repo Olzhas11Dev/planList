@@ -4,10 +4,10 @@ export default function InputSection(props) {
   return (
     <div className="inputSection">
       <div>
-        <input type="text" placeholder="Enter your text" />
+        <input onChange={(e) => props.setInputText(e.target.value)} type="text" placeholder="Enter your text" value={props.inputText} />
       </div>
       <div>
-        <button>+</button>
+        <button onClick={() => props.addToArray()}>+</button>
       </div>
     </div>
   )
