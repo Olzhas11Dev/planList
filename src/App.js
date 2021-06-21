@@ -6,10 +6,11 @@ import { useState } from "react"
 function App() {
   const [inputText, setInputText] = useState("")
   const [array, setArray] = useState([])
+  const [color, setColor] = useState()
 
   function addToArray() {
     setArray([...array, inputText])
-    setInputText("") // To clean input
+    setInputText("") // To clean the input
   }
 
   function cleanList(inputText) {
