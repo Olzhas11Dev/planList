@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css"
+import InputSection from "./components/InputSection"
+import ListItems from "./components/ListItems"
+import { useState } from "react"
 
 function App() {
+  const [inputText, setInputText] = useState("")
+  const [arr, setArr] = useState([])
+
+  const [index, setIndex] = useState(0)
+  const [color, setColor] = useState("#008CFF")
+  const arrColor = ["#008CFF", "#BBAFFD", "#42E3C1"]
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h2>Plan list</h2>
+      <InputSection />
+      <ListItems />
+
+      <div className="item">Items:{arr.length}</div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
